@@ -1,0 +1,19 @@
+{
+  "name": "queqianme-activities",
+  "description": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "sass-rem": "^1.2.3"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1"
+  }
+}

@@ -1,0 +1,15 @@
+   <script type="application/javascript" src="../app/iscroll.js"></script>
+    <script type="text/javascript">
+        var myScroll;
+
+        function loaded() {
+            setTimeout(function () {
+                myScroll = new iScroll('wrapper', {
+                    vScroll: true,
+                    bounce: true,
+                    checkDOMChanges: true,
+                });
+            }, 100);
+        }
+        document.addEventListener('DOMContentLoaded', loaded, false);
+    </script>

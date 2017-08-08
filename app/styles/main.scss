@@ -1,0 +1,403 @@
+@import "./variables";
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    min-width: $min-width;
+    max-width: $max-width;
+}
+
+
+/* 设置HTML5元素为块 */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+/* 图片自适应 */
+
+img {
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+    /*为了照顾ie图片缩放失真*/
+    border: none;
+}
+
+
+/* 初始化 */
+
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style: none;
+}
+
+input,
+select {
+    outline-style: none;
+}
+
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: $input-placeholder-color;
+}
+
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: $input-placeholder-color;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: $input-placeholder-color;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: $input-placeholder-color;
+}
+
+body {
+    font-family: $font-family-global;
+    color: $text-default-color;
+    background-color: $body-bg;
+    font-size: $font-default-size;
+    position: relative;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+}
+
+a,
+button,
+input,
+textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+a {
+    text-decoration: none;
+    color: $text-default-color;
+    font-family: Microsoft YaHei, Tahoma, Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+}
+
+body {
+    font-size: 0 !important;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.special ul li {
+    width: 100%;
+    float: left;
+    img {
+        float: left;
+    }
+}
+
+.lazy {
+    display: inline;
+    float: left;
+}
+
+
+/* page */
+
+#mainContent {
+    width: 100%;
+    position: relative;
+}
+
+
+/* 模态框 modal */
+
+.tipView.tipViewOpen {
+    visibility: visible;
+    display: block;
+}
+
+.tipView {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    visibility: hidden;
+    display: none;
+    z-index: 2;
+}
+
+.tipContent {
+    width: 87%;
+    background: $white;
+    position: relative;
+    top: 0;
+    padding: rem(27px);
+    border-radius: rem(10px);
+    font-size: rem(17px);
+    .tipText {
+        padding: rem(20px) 0 rem(25px);
+        line-height: rem(25px);
+        color: $text-80parcen-color;
+    }
+}
+
+.tipContent>#tipMessage {
+    display: -webkit-box;
+    margin: 0 auto;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    z-index: 1;
+}
+
+.tipBtn {
+    width: 100%;
+    z-index: 2;
+}
+
+
+/*模态框动画*/
+
+.tipView.tipViewOpen .tip,
+.tipView.tipViewClose .tip {
+    -webkit-animation-duration: $animation-duration;
+    -moz-animation-duration: $animation-duration;
+    -ms-animation-duration: $animation-duration;
+    -o-animation-duration: $animation-duration;
+    animation-duration: $animation-duration;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.tipView.tipViewOpen .tip {
+    -webkit-animation-name: animOpen;
+    -moz-animation-name: animOpen;
+    -ms-animation-name: animOpen;
+    -o-animation-name: animOpen;
+    animation-name: animOpen;
+    -webkit-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    -moz-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    -ms-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    -o-animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.tipView.tipViewClose .tip {
+    -webkit-animation-name: animClose;
+    -moz-animation-name: animClose;
+    -ms-animation-name: animClose;
+    -o-animation-name: animClose;
+    animation-name: animClose;
+}
+
+@-webkit-keyframes animOpen {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: scale3d(0, 0, 1);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes animOpen {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: scale3d(0, 0, 1);
+        transform: scale3d(0, 0, 1);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@-webkit-keyframes animClose {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: scale3d(0.5, 0.5, 1);
+    }
+}
+
+@keyframes animClose {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: scale3d(0.5, 0.5, 1);
+        transform: scale3d(0.5, 0.5, 1);
+    }
+}
+
+.oval {
+    border: 1px solid $Orange;
+    border-radius: rem(50px);
+    padding: rem(7px) rem(23px);
+    color: $Orange;
+    font-size: rem(18px);
+    display: inline-block;
+}
+
+// 经典按钮样式
+.classicButton {
+    width: 100%;
+    padding: 0 15px;
+    >div {
+        width: 100%;
+        padding: rem(13px) 0px;
+        background: $queqianme;
+        border-radius: rem(8px);
+        color: $white;
+        font-size: rem(18px);
+        text-align: center;
+    }
+    &.Fail {
+        div {
+            background: $queqianme_fail;
+        }
+    }
+}
+
+//经典弹窗样式
+.classic.tipContent {
+    width: 75%;
+    background: $white;
+    position: relative;
+    top: 0;
+    padding: rem(20px);
+    padding-top: rem(25px);
+    border-radius: rem(10px);
+    font-size: rem(17px);
+    .tipText {
+        padding: rem(20px) 0 rem(25px);
+        line-height: rem(25px);
+        color: $textBesic-70parcen-color;
+    }
+}
+
+.tipContent {
+    .classicButton {
+        padding: 0;
+    }
+}
+
+// 微信分享提示窗
+#tipPrompt .tip {
+    display: block;
+    img {
+        width: 85%;
+    }
+}
+
+//下载按钮
+.downButtom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 20px;
+    z-index: 1;
+    div {
+        background: #ff8500;
+        border-radius: rem(5px);
+        width: 100%;
+        padding: rem(10px) 0px;
+        color: #fff;
+        text-align: center;
+        font-size: rem(15px);
+    }
+}
