@@ -12,4 +12,4 @@ npm install && bower install
 npm run start
 ```
 
-then open your http://localhost:8080/i2017-04-05.html 
+then open your http://localhost:8080/index.html 
