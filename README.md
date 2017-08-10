@@ -1,6 +1,5 @@
-# queqianme-activities
+# activities
 **templates放html、app里面放script、style、img**
-
 
 **根目录下install the deps**
 ```bash
