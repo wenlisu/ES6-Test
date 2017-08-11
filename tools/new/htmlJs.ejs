@@ -1,0 +1,57 @@
+import Html from '../Html';
+import {
+  dom
+} from '../sub';
+import {
+  response
+} from '../response';
+import {
+  fetchPost
+} from '../util';
+import shareBtnFunction from '../shareBtnFunction';
+const tipSuccess = require("../imgs/<%= modelName %>/success.png"),
+  tipThank = require("../imgs/<%= modelName %>/fail.png");
+
+class indexHtml extends Html {
+  constructor(options) {
+    super(options)
+    this.templates = {
+      quota_btn: dom.getId('quota_btn'),
+    }
+    this.options = Object.assign({}, this.options, options, this.templates);
+    this.checkOptions().bindEvents();
+  }
+  initHtml() {
+    try {
+      this.options.quota_btn.addEventListener('click', () => {
+        this.getInfomation();
+      })
+    } catch (error) {
+      response(error.stack, tipThank)
+    }
+  }
+  async getInfomation() {
+    try {
+      let {
+        api,
+        rootUrlType,
+        userToken
+      } = this.options
+      let requestData = await fetchPost((`${api ? api : rootUrlType}temp/checkLimit`), {
+        userId: userToken.userId,
+        token: userToken.token
+      });
+      if (requestData && requestData.status == 0) {
+        response("获得临时提额资格", tipSuccess)
+      } else if (requestData && requestData.status !== 0 && requestData.des) {
+        response(`${requestData.des}`, tipThank);
+      }
+    } catch (error) {
+      response(error.stack, tipThank)
+    }
+  }
+}
+
+new indexHtml({
+  element: document.querySelectorAll('body')[0]
+})

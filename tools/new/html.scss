@@ -1,0 +1,137 @@
+@import "./main";
+@import "./wrapper";
+@import "./spinner";
+body {
+    background: #f5f5f9;
+    text-align: center;
+}
+
+.tip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+    min-width: $min-width;
+    max-width: $max-width;
+    opacity: 1;
+    visibility: visible;
+    display: -webkit-box;
+    margin: 0 auto;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background: $tip-80parcen-color;
+}
+
+#tipCenter {
+    .tipContent {
+        background: url(../imgs/2017-07-20/tip.png) no-repeat center center;
+        background-size: 100% 100%;
+        padding: 82px 18px 15px 33px;
+        font-size: rem(26px);
+        color: $text-default-color;
+        margin-bottom: rem(90px);
+        #tipTitle {
+            font-size: 0;
+            img {
+                width: 38%;
+                margin-bottom: rem(5px);
+            }
+        }
+        .tipText {
+            font-size: rem(22px);
+            padding: rem(10px) rem(20px) rem(30px);
+            line-height: rem(27px);
+            color: #ffd115;
+            font-family: PingFangSC-Thin;
+        }
+        #tipBtn {
+            padding: 0 rem(15px);
+        }
+    }
+}
+
+.btn {
+    position: absolute;
+    padding: 0 27%;
+    div {
+        position: relative;
+        img {
+            &:nth-of-type(2) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: rem(-43.12px);
+                margin-top: rem(-13px);
+                width: 50%;
+            }
+        }
+    }
+    &#quota_btn {
+        img {
+            &:nth-of-type(2) {
+                width: 26%;
+                margin-left: rem(-40.94px);
+                margin-top: rem(-12.76px);
+            }
+        }
+    }
+}
+
+#tipBtn {
+    position: relative;
+    >div {
+        line-height: rem(19px);
+    }
+    img {
+        &:nth-of-type(2) {
+            width: 16%;
+            margin-left: rem(-19.61px);
+            margin-top: rem(-11.54px);
+        }
+    }
+}
+
+#mainContent {
+    position: relative;
+    #quota_btn {
+        position: absolute;
+        top: rem(235px);
+        width: 100%;
+        padding: 0 rem(30px);
+        cursor: pointer;
+    }
+    #warn {
+        font-size: rem(14.3px);
+        letter-spacing: rem(1.5px);
+        color: #fff;
+        position: absolute;
+        top: rem(308px);
+        left: 0;
+        right: 0;
+        padding: 0 rem(30px);
+    }
+    #quota_rule {
+        position: absolute;
+        top: rem(445px);
+        width: 100%;
+        padding: 0 rem(30px);
+        li {
+            font-size: rem(14.5px);
+            line-height: rem(25px);
+            width: 100%;
+            text-align: left;
+            color: #fff;
+            span {
+                color: #ffd115;
+            }
+        }
+    }
+}
+
+.fd {
+    margin-top: rem(26px);
+}

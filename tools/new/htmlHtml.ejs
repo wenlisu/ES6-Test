@@ -1,0 +1,34 @@
+ #include('./modules/meta.html')
+ #include('./modules/iscroll.html')
+<title>
+    提额活动
+</title>
+</head>
+
+<body id="body">
+    <div id="wrapper" class="clearfix">
+        <div id="scroller">
+             <section id="mainContent" class="clearfix">
+                <img class="lazy img" src=`../app/imgs/${<%= modelName %>}/bg1.png` style="display: inline;" />
+            </section>
+        </div>
+    </div>
+     <section id="tipSuccess" class="tipView">
+        <div class="tip" id="tipCenter">
+            <div class="tipContent">
+                <div id="tipTitle">
+                   <img class="img" id="tipTitleImg" src=`../app/imgs/${<%= modelName %>}/fail.png` />
+                </div>
+                <div class="tipText" id="successText">获得临时提额资格</div>
+                <div id="tipBtn" class="btn">
+                    <div>
+                       <img class="img" src=`../app/imgs/${<%= modelName %>}/btn2.png` style="display: inline;" />
+                        <img class="lazy img" src=`../app/imgs/${<%= modelName %>}/btnText_1.png` />
+                    </div>
+                </div>
+            </div>
+    </section>
+    #include('./modules/spinner.html')
+</body>
+
+</html>
