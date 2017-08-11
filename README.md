@@ -13,7 +13,7 @@ $ npm run start
 
 then open your http://localhost:8080/index.html 
 
-**创建新html、js、scss，img文件夹
+**创建新html、js、scss，img文件夹**
 ```
 $ node --harmony tools html <DATENAME>
 ```
